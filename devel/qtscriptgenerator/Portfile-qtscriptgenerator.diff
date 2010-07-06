@@ -1,0 +1,25 @@
+--- Portfile.orig	2010-01-25 19:53:06.000000000 -0800
++++ Portfile	2010-01-25 19:52:23.000000000 -0800
+@@ -15,7 +15,12 @@
+ homepage            http://labs.trolltech.com/page/Projects/QtScript/Generator
+ distname            ${name}-src-${version}
+ master_sites        http://qtscriptgenerator.googlecode.com/files/
+-checksums           md5     ca4046ad4bda36cd4e21649d4b98886d \
++checksums           patch-generator-qtscript_masterinclude.h.diff \
++                    md5     570dd58bbd46722d48a09c79afbbfdff \
++                    sha1    bb9ce47f81708c5e75c464927543b2b4c492a466 \
++                    rmd160  71367b2db014e454a78f13691c9ec35b0f466f62 \
++                    qtscriptgenerator-src-0.1.0.tar.gz \
++                    md5     ca4046ad4bda36cd4e21649d4b98886d \
+                     sha1    eeae733106369e289f257b754822bc372fd6ba75 \
+                     rmd160  a02ce6fea2fbc3d3a6ae9e51c6b563ef4bcd51f3 
+ 
+@@ -25,6 +30,8 @@
+ 
+ use_configure   no
+ 
++patchfiles  patch-generator-qtscript_masterinclude.h.diff
++
+ build {
+     foreach dir {generator qtbindings} {
+         if { ${dir}=="generator" } {

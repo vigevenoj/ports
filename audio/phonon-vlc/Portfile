@@ -1,0 +1,21 @@
+# $Id: Portfile 53530 2009-07-07 17:44:56Z devans@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4    1.0
+
+name                phonon-vlc
+version             git-20100404
+revision            1
+categories          audio kde kde4
+maintainers         nomaintainer
+description         Cross Platform Multimedia API used by KDE4
+long_description    Cross Platform Multimedia API used by KDE4
+platforms           darwin
+homepage            http://phonon-vlc.kde.org
+master_sites        git://gitorious.org/phonon
+distname            phonon-vlc
+
+fetch.type          git
+git.url           git://gitorious.org/phonon/phonon-vlc.git
+configure.args-append	-DCMAKE_INSTALL_NAME_DIR=${prefix}/lib \
+                        ../${distname}

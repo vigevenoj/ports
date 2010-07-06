@@ -1,0 +1,47 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; truncate-lines: t; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:et:sw=4:ts=4:sts=4
+# $Id: Portfile 68608 2010-06-08 00:15:00Z snc@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.0
+
+name                kdegraphics4
+version             4.4.80
+categories          kde kde4
+maintainers         snc sharky
+description         KDE4 graphics applications
+long_description    KDE applications for managing and creating image files.
+platforms           darwin
+homepage            http://www.kde.org
+master_sites        kde:unstable/${version}/src/
+use_bzip2           yes
+distname            kdegraphics-${version}
+checksums 	    md5     6ab69124a5490ef884c8d738a4e7de87 \
+		    sha1    d968dc9278b073e62247bd11fa4bc925abb31c4d \
+		    rmd160  1620f84ad177353229f9faa0077c69cf87be24d6
+#checksums           md5     4555d85bb1e302d085d14d2c4ad01323 \
+#                    sha1    cdec759477af915fe661b4a4e605708cdb2eebd8 \
+#                    rmd160  f3c5790fd05a82f86d39627bcfc45237b9f5e91a
+
+depends_lib-append  port:kdebase4-runtime \
+                    port:exiv2 port:poppler \
+                    port:djvulibre port:chmlib \
+                    port:libspectre port:qca \
+                    port:sane-backends
+
+#patch.dir           ${workpath}/${distname}
+#patchfiles          patch-gwenview-lib-document-view-videoviewadapter.cpp.patch \
+#                    patch-okular-core-audioplayer.cpp.patch
+
+configure.args-append   ../${distname} \
+                        -DQCA2_LIBRARIES=${prefix}/lib/libqca.2.dylib \
+                        -DQCA2_INCLUDE_DIR=${prefix}/include/QtCrypto \
+                        -DGWENVIEW_SEMANTICINFO_BACKEND=None
+
+variant gphoto2 description {Required to build the kamera project} {
+    depends_lib-append port:gphoto2
+}
+
+universal_variant   no
+
+livecheck.url       http://mirrors.ibiblio.org/pub/mirrors/kde/stable/latest/src/
+livecheck.regex     kdegraphics-(\\d+\\.\\d+\\.\\d+)${extract.suffix}
