@@ -29,7 +29,7 @@ depends_lib         port:py26-gdata \
 use_configure 	    no
 
 post-patch {
-	reinplace "s|^#!/usr/bin/python|#!/${prefix}/Library/Frameworks/Python.framework/Versions/2.6/bin/python|" ${workpath}/gcalcli
+	reinplace "s|^#!/usr/bin/python|#!${prefix}/Library/Frameworks/Python.framework/Versions/2.6/bin/python|" ${workpath}/gcalcli
 }
 
 build {}
