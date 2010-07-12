@@ -4,7 +4,7 @@ PortSystem          1.0
 PortGroup           kde4    1.0
 
 name                amarok-devel
-version             git-20100608
+version             git-20100710
 categories          kde kde4
 maintainers         illogic-al openmaintainer
 description         Amarok, the world renown media player/.
@@ -21,8 +21,8 @@ master_sites        http://git.kde.org/amarok
 distname            amarok
 fetch.type          git
 git.url             git://git.kde.org/amarok/amarok.git
-#git.branch 	    5a2348207a491bf3a202c57501468e0f6f3b8f1e
-git.branch         0fd8bbedef61195a4e324d1acd6abdaeebda4077 
+git.branch 	    5f9fcc0a30bbe894936d8e7b9258088d2c44c567
+#git.branch         0fd8bbedef61195a4e324d1acd6abdaeebda4077 
 
 depends_build-append port:git-core
 
