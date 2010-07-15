@@ -2,17 +2,15 @@ These are some MacPorts Portfiles that I use.
 
 Ports that I use on a regular basis:
 
-* amarok-devel
-* digikam
-* kdegraphics4 (for digikam)
-* kipi-plugins
+* amarok-devel: pulled from git 2010-07-10
+* digikam: 1.3.0
+* kdegraphics4 (for digikam): 4.4.80 
+* kipi-plugins: 1.3.0
 
 Ports that I am holding at a specific version for now:
 
-* tcl
-* tk
-* loudmouth
-* qtscriptgenerator 
+* loudmouth: 1.4.3
+* qtscriptgenerator: 0.1.0 
 
 Ports that are probably broken right now:
 
@@ -20,4 +18,4 @@ Ports that are probably broken right now:
 
 Ports that build but have bugs unrelated to MacPorts
 
-* gcalcli (Has trouble with Unicode, but works otherwise, if passwords are properly escaped)
+* gcalcli: 1.4.0 (Has trouble with Unicode, but works otherwise, if passwords are properly escaped)
