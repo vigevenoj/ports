@@ -63,15 +63,8 @@ post-extract {
 }
 
 post-configure {
-	foreach file [exec grep -r1 "#include\[ \]*<\[Pp\]honon" \
-			${workpath}/${distname}] {
-		reinplace "s|Phonon\\/|phonon\\/|" ${file}
-	}
 }
 
 post-destroot {
-    # Place bundle icons in correct location
-#	system "mv ${destroot}${prefix}/bin/amarok.app/Contents/Resources/* ${destroot}${applications_dir}/KDE4/Amarok.app/Contents/Resources/"
-#	system "rm -rf ${destroot}${prefix}/bin"
 }
 
