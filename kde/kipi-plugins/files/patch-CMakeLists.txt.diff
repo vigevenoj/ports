@@ -1,0 +1,17 @@
+--- ../kipi-plugins-1.4.0/cmakelists.txt.orig	2010-08-22 01:11:01.000000000 -0700
++++ ../kipi-plugins-1.4.0/CMakeLists.txt	2010-09-12 09:58:37.000000000 -0700
+@@ -378,10 +378,10 @@
+         ADD_SUBDIRECTORY(acquireimages)
+     ENDIF(KSANE_FOUND)
+ 
+-    IF(BUILD_VIEWERS)
+-        ADD_SUBDIRECTORY(advancedslideshow)
+-        ADD_SUBDIRECTORY(imageviewer)
+-    ENDIF(BUILD_VIEWERS)
++#    IF(BUILD_VIEWERS)
++#        ADD_SUBDIRECTORY(advancedslideshow)
++#        ADD_SUBDIRECTORY(imageviewer)
++#    ENDIF(BUILD_VIEWERS)
+ 
+     IF(EXPAT_FOUND)
+         IF(CMAKE_USE_PTHREADS_INIT OR CMAKE_USE_WIN32_THREADS_INIT)
