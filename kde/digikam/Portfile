@@ -3,7 +3,7 @@
 PortSystem      1.0
 PortGroup       kde4    1.0
 name            digikam
-version         1.3.0
+version         1.4.0
 revision        1
 categories      kde kde4
 platforms       darwin
@@ -16,8 +16,7 @@ homepage        http://www.digikam.org
 master_sites    sourceforge
 use_bzip2       yes
 distname        digikam-${version}
-#checksums 	md5 8f68022008cf1650924cc8688f176572
-checksums       md5 25d09fdab2b2450c6c6075aab3377fce
+checksums       md5 748518d6b24cc2c44acad5cb9df8d21a
 
 depends_lib     port:kdelibs4 \
                 port:kdebase4-runtime \
@@ -32,6 +31,7 @@ configure.args  ../${distname} \
         -DBUNDLE_INSTALL_DIR=${applications_dir} \
         -DCMAKE_BUILD_TYPE=Release \
         -DWITH_Nepomuk=Off \
+        -DMYSQLD_PATH=${prefix}/libexec \
         -DQT_QMAKE_EXECUTABLE=${prefix}/libexec/qt4-mac/bin/qmake \
         -Wno-dev
 
@@ -40,6 +40,10 @@ default_variants    +debug
 variant debug description "Enable debug binaries" {
     configure.args-delete       -DCMAKE_BUILD_TYPE=Release
     configure.args-append       -DCMAKE_BUILD_TYPE=debugfull
+}
+
+post-patch {
+    reinplace "s|mysql_install_db|mysql_install_db5|g" ${workpath}/${distname}/CMakeLists.txt
 }
 
 variant no_kipi description {install without KIPI plugins} {
