@@ -19,3 +19,8 @@ fetch.type          git
 git.url           git://gitorious.org/phonon/phonon-vlc.git
 configure.args-append	-DCMAKE_INSTALL_NAME_DIR=${prefix}/lib \
                         ../${distname}
+
+post-extract {
+	move ${workpath}/build ${workpath}/phonon-vlc
+	file mkdir ${workpath}/build
+}
